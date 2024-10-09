@@ -1,0 +1,184 @@
+FUNÇÕES:
+def nome(parametro 1, parametro 2, ...) > tipo nome(tipo parametro 1, parametro 2, ...)
+return > return
+--------------------------------------------------------
+CONIDICONAIS:
+
+if > if
+elif > else if
+else > else
+
+ex:
+if(condição) {
+...;
+} else if (condição) {
+...;
+} else {
+...;
+}
+--------------------------------------------------------
+TIPO INT
+
+[-2^31,2^31,-1]
+
+-operadores
+
++ soma
+- subtração
+* multiplicação
+/ divisão inteira
+% resto
+----------------------------
++= -= *= /= %= igual python
+----------------------------
+a++ > += 1, executou adiciona
+++a > += 1, adiciona e executa
+a-- > -= 1, executou subtrai
+--a > += 1, adiciona e subtrai
+--------------------------------------------------------
+BLOCOS
+-delimitados por "{" e "}"
+	-não é obrigatória, mas é uma boa pratica
+-linhas terminam em ;
+--------------------------------------------------------
+SEMÂNTICA
+
+igual do python(maior, menor, maior igual, menor igual, igual, diferente)
+--------------------------------------------------------
+VARIÁVEIS
+
+Em C, a variável precisa ser declarada antes de ser usada
+	-fazemos no inicio da função
+
+ex: int potencia(int a, int b) {
+	int i, prod = 1:
+	for (i = 0; i < b; i++) {
+		prod = a * prod;
+	}
+	return prod;
+}
+
+
+nesse exemplo declara que i e prod é int e igual a 1
+--------------------------------------------------------
+LAÇOS
+
+while (codição) {
+... <---- executa enquanto condicao for verdadeiro
+}
+
+
+do (condição) {
+... <---- executa enquanto condicao for verdadeiro, MAS SEMPRE executa a primeira vez
+}
+
+
+for (inicialização; condição; atualização) {
+...
+}
+
+inicialização <----- executa apenas a primeira vez
+conição <----------- caso falhe, o laço para
+atualização <------- na primeira vez, executado após a inicialização/ execitada após o bloco antes de testar a condição
+
+break
+-interrompe o laço
+
+continue
+-podemos pular para o início da próxima iteração de um laço com esse comando
+
+--------------------------------------------------------
+Função main
+-Em C, a execução do programa começa pela função main
+-sempre devolve um int
+-se devolver 0 significa que não houve erros
+	-valores diferentes indicam o erro que ocorreu
+--------------------------------------------------------
+IMPRESSÃO
+-printf
+	-O %d significa substituir por um inteiro
+		– Existem outras substituições também: %f, %s, etc.
+	- recebe um parâmetro com a string a ser impressa
+		– e um parâmetro adicional para cada %d, %f, %s, …
+	- a substituição é feita da esquerda para a direita na string
+	- Não adiciona a quebra de linha '\n' automaticamente
+
+
+	int printf("string com padrão", var1, var2, …, varn)
+		• "string com padrão" contém a frase a ser impressa e pode conter padrões especiais de caracteres 			que serão substituídos pelo conteúdo das variáveis fornecidas a direita
+		• var1, var2, …, varn são variáveis cujos valores substituirão os padrões especiais na string 				fornecida. O número, tipo, e ordem dessas variáveis deve casar com o tipo do padrão.
+		• Retorna o número de bytes impressos
+
+1	int ra, id;
+2 	char sx;
+3 	float kg;
+4 	printf("RA: %d, sx: %c, id: %d, kg: %f\n", ra, sx, id, kg);
+
+ex:
+Em C
+1 	int main() {
+2 	int a, b, maior, pot;
+3 	printf("Entre com a e b\n");
+4	 scanf("%d %d", &a, &b);
+5 	maior = maximo(a, b);
+6	 pot = potencia(a, b);
+7 	printf("Maior: %d\n", maior);
+8	 printf("a^b: %d\n", pot);
+9	 return 0;
+10	}
+
+PADRÕES ESPECIAIS
+Padrão 		Semântica
+%d 		int
+%f 		float ou double
+%c 		char
+%s 		“string”
+\n 		imprime quebra de linha
+\t 		imprime caractere de tabulação
+
+int printf("string com padrão", var1, var2, …, varn)
+
+--------------------------------------------------------
+LEITURA
+	A leitura no C é feita pela função scanf:
+		• String diz quantos valores serão lidos e os seus tipos
+		• Precisa passar o endereço da variável usando operador &
+			– veremos mais sobre isso em breve
+			– por enquanto, não se esqueça do &
+		• Ignora espaços em branco, tabs e quebras de linha
+			– veremos alguns casos onde isso não acontece…
+
+int scanf("string com padrão", &var1, &var2, …, &varn)
+--------------------------------------------------------
+Executando o programa
+	Python é interpretada, C é compilada
+		• O interpretador do Python abre e executa o seu código
+		• O compilador do C gera um arquivo executável
+			– Depois não depende mais do compilador
+
+	Compilando (no terminal):
+	• gcc -std=c99 -Wall -Wvla -Werror -g -lm programa.c -o programa
+
+	Flags:
+		-std=c99: usa o padrão C99
+		-Wall: dá mais warnings de compilação
+		-Wvla: warnings para variable length arrays
+		-Werror: warnings viram erros de compilação
+		-g: permite usar gdb e valgrind
+		-lm: permite usar funções matemáticas
+		-o: define o nome do programa
+
+	Executando o programa:
+	• ./programa
+--------------------------------------------------------
+LISTAS
+
+Em C, as listas são bem diferentes em relação ao Python:
+	• São chamadas de vetores ou arrays
+	• Todos os elementos são sempre do mesmo tipo
+	• Têm tamanho fixo definido na declaração da variável
+	• Exemplo de declaração: int lista[10];
+		– Define uma lista de 10 ints
+
+
+
