@@ -1,31 +1,26 @@
 #include <stdio.h>
 
-float cf(float valor) {
-	float fah;
-	fah = (valor/5*9)-32;
-	return fah;
+void leitor_lista(int n, int lista[n]) {
+	int i;
+	for(i = 0; i < n; i++) {
+		lista[i] = i;
+	}
 }
 
-float fc(float valor) {
-	float cel;
-	cel = (valor-32)*5/9;
-	return cel;
-}
-	
-int main() {
-	int a;
-	float valor;
-	printf("Calculadora de Temperatura\n");
-	printf("Escolha a escala\n");
-	printf("Digite o valor para conversão:");
-	scanf("%f", &valor);
-	printf("Digite sua opção(0: F, 1: C): ");
-	scanf("%d", &a);
-	if (a == 0) {
-		printf("%f", cf(valor));
-	} else if (a == 1) {
-		printf("%f", fc(valor));
-	} else {
-		printf("Erro");
+void imprime_pares(int n, int lista[n]) {
+	int i;
+	for(i=0; i<n ; i++) {
+		if(i % 2 == 0) {
+			printf("%d ", lista[i]);
+		}
 	}
+}
+
+int main() {
+	int n;
+	printf("digite o valor de n ");
+	scanf("%d", &n);
+	int lista[n];
+	leitor_lista(n, lista);
+	imprime_pares(n, lista);
 }
