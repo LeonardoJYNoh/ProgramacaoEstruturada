@@ -46,3 +46,4 @@ int main(){
 
 // na hora de chamar uma função que exige uma lista, so chamar a variavel sem o "[]"
 // na hora de criar uma lista é necessario colocar os "[]" sem mostrar o tamanho dela
+//.
