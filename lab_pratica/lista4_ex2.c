@@ -32,6 +32,7 @@ int contador_sequencia_0(char str[MAX]){
 int main(){
     
     char str[MAX];
+    printf("Digite a frase, para retornar a maior sequencia de 0\n");
     fgets(str, MAX, stdin);
     printf("%d", contador_sequencia_0(str));
 
