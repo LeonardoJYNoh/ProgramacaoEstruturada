@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/// Escreva um programa que, dado um inteiro n fornecido pelo usuário, leia n números inteiros fornecidos pelo usuário e compute a média desses números
+
+
 int* creat_list(int n){
     int *v = malloc(sizeof(int)*n);
 
